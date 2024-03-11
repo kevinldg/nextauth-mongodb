@@ -1,17 +1,30 @@
-import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/react";
+export default function Component() {
+  const { data: session } = useSession();
 
-export default function Home() {
   return (
     <div className=" h-screen flex justify-center items-center">
-      <div className=" bg-neutral-100 p-8 border-solid border-2 border-neutral-200 flex flex-col gap-2 text-center">
-        <h1 className=" font-bold text-xl">NextAuth.js with MongoDB</h1>
-        <Link href="/" className=" bg-blue-500 text-white rounded py-1">
-          Login
-        </Link>
-        <Link href="/" className=" bg-neutral-400 text-white rounded py-1">
-          Register
-        </Link>
-      </div>
+      {session ? (
+        <div className=" bg-neutral-100 border-solid border-2 border-neutral-300 p-4 rounded w-fit flex gap-2 flex-col justify-center">
+          <p>Signed in as {session.user.email}</p>
+          <button
+            onClick={() => signOut()}
+            className=" bg-red-400 text-white px-2 py-1 rounded"
+          >
+            Sign out
+          </button>
+        </div>
+      ) : (
+        <div className=" bg-neutral-100 border-solid border-2 border-neutral-300 p-4 rounded w-fit flex gap-2 flex-col justify-center">
+          <p>Not signed in</p>
+          <button
+            onClick={() => signIn()}
+            className=" bg-blue-400 text-white px-2 py-1 rounded"
+          >
+            Sign in
+          </button>
+        </div>
+      )}
     </div>
   );
 }
