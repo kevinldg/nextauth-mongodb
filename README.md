@@ -1,40 +1,62 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# nextauth-mongodb
 
-## Getting Started
+A minimalistic web app to learn the interaction between the NextAuth credentials provider and MongoDB.
 
-First, run the development server:
+This app contains a login page, a register page and API endpoints. The password will be stored hashed.
 
-```bash
+## Note
+
+<details>
+  <br/>
+  <summary>Environment variables</summary>
+  
+  ```
+  MONGODB_URI = mongodb://username:password@clustername-shard-00-00.mongodb.net:27017/mydatabase (example)
+  NEXTAUTH_SECRET = Randomized string
+  ```
+</details>
+
+You will need a MongoDB Account and a database (Hint: Take a look at the User model)
+
+## Challenges: What can be improved?
+
+- Check whether an email has really been entered
+- Check whether anything at all has been entered in the form (both login and registration)
+- Hashing the password before it is transferred to the backend
+- Check whether an entry with the entered data already exists in MongoDB
+
+And whatever else you can think of, feel free :)
+
+## Setup the app
+
+1. Clone the repository from GitHub
+```
+git clone https://github.com/kevinldg/nextauth-mongodb.git
+```
+2. Go into the repository
+```
+cd nextauth-mongodb
+```
+3. Install required packages
+```
+npm i
+```
+4. Run the development server
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Used technologies
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Axios (HTTP requests)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Bcrypt (Encryption)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+NextAuth.js (Authentication)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Mongoose (ODM for MongoDB)
