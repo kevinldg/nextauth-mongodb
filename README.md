@@ -46,6 +46,17 @@ npm i
 npm run dev
 ```
 
+## Steps if you want to rebuild it yourself
+
+1. Set up a new Next.js project
+2. Install required packages (NextAuth, MongoDB, Mongoose, Axios, Bcrypt)
+3. Set up MongoDB connection and model
+4. Set up NextAuth config
+5. Wrap the SessionProvider around the _app.js
+6. Create a landing page with a dynamic button to sign in and sign out
+7. Create a registration page with a form
+8. Create the API endpoints
+
 ## Used technologies
 
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
