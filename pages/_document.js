@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>Next.js App</title>
+        <title>nextauth-mongodb</title>
       </Head>
       <body>
         <Main />

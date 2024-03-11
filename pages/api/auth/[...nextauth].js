@@ -12,7 +12,7 @@ export const authOptions = {
         name: {
           label: "Name",
           type: "text",
-          placeholder: "e.g. GuNShOtzZ",
+          placeholder: "e.g. Testuser",
         },
         password: { label: "Password", type: "password" },
       },
